@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSecurity CTF Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CyberSecurity Challenge  </h1>
+        <p>Welcome Hacker! Yahan kuch basic client-side challenges hain aapki skills test karne ke liye.</p>
+
+        <!-- Challenge 1 -->
+        <div class="challenge">
+            <h2>Challenge 1: The Hidden Secret</h2>
+            <p>Pehla flag is page ke source code mein chhupa hai. Dhundh kar dikhao!</p>
+            <!-- FLAG 1: flag{HTML_S0URC3_1S_3ASY} -->
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="challenge">
+            <h2>Challenge 2: Authentication Bypass</h2>
+            <p>Neeche diya gaya login form secure nahi hai. Ek achha hacker samajh jayega ki password kahan check ho raha hai.</p>
+            <input type="password" id="passwordInput" placeholder="Enter Password">
+            <button onclick="checkPassword()">Login</button>
+            <p id="resultMessage"></p>
+        </div>
+    </div>
+    
+    <!-- Scripts hamesha end mein load hote hain -->
+    <script src="script.js"></script>
+</body>
+</html>
