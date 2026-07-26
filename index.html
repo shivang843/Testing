@@ -58,7 +58,32 @@
 <body>
     <div class="login-box">
         <h2>Login</h2>
-        <script>alert('XSS Hacked!')</script>
+        <script>
+    // Helper function: User input ko safe banata hai
+    function sanitizeInput(input) {
+        const element = document.createElement('div');
+        element.textContent = input;  // Browser automatically converts < to &lt; and > to &gt;
+        return element.innerHTML;
+    }
+
+    function login() {
+        // Raw input lo
+        const rawUsername = document.getElementById('username').value;
+        const rawPassword = document.getElementById('password').value;
+        const errorMsg = document.getElementById('error-msg');
+
+        // Input ko sanitize karo (safe banao)
+        const username = sanitizeInput(rawUsername);
+        const password = sanitizeInput(rawPassword);
+
+        // Simulate a simple check
+        if (username === "admin" && password === "1234") {
+            window.location.href = "dashboard.html";
+        } else {
+            errorMsg.innerText = "Invalid username or password!";
+        }
+    }
+</script>
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
         <button onclick="login()">Login</button>
