@@ -1,34 +1,83 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberSecurity CTF Test</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .login-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-box button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>CyberSecurity Challenge  </h1>
-        <p>Welcome Hacker! Yahan kuch basic client-side challenges hain aapki skills test karne ke liye.</p>
-
-        <!-- Challenge 1 -->
-        <div class="challenge">
-            <h2>Challenge 1: The Hidden Secret</h2>
-            <p>Pehla flag is page ke source code mein chhupa hai. Dhundh kar dikhao!</p>
-            <!-- FLAG 1: flag{HTML_S0URC3_1S_3ASY} -->
-        </div>
-
-        <!-- Challenge 2 -->
-        <div class="challenge">
-            <h2>Challenge 2: Authentication Bypass</h2>
-            <p>Neeche diya gaya login form secure nahi hai. Ek achha hacker samajh jayega ki password kahan check ho raha hai.</p>
-            <input type="password" id="passwordInput" placeholder="Enter Password">
-            <button onclick="checkPassword()">Login</button>
-            <p id="resultMessage"></p>
-        </div>
+    <div class="login-box">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="error-msg" class="error"></p>
     </div>
-    
-    <!-- Scripts hamesha end mein load hote hain -->
-    <script src="script.js"></script>
+
+    <script>
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('error-msg');
+
+            // Simulate a simple check (hardcoded for demo)
+            if (username === "admin" && password === "1234") {
+                // Redirect to the dashboard page
+                window.location.href = "dashboard.html";
+            } else {
+                errorMsg.innerText = "Invalid username or password!";
+            }
+        }
+    </script>
 </body>
 </html>
